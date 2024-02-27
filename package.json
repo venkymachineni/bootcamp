@@ -7,19 +7,26 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^7",
+    "@sap/cds-dk": "^7.6.1",
     "@sap/cds-hana": "^2",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
     "@sap/hana-client": "^2.19.21",
     "express": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^1"
+    "@cap-js/sqlite": "^1",
+    "@sap/ux-specification": "^1.120.4"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-capm_poc_bootcamp_ui": "cds watch --open capm_poc_bootcamp_ui/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
       "db": "hana"
     }
-  }
+  },
+  "sapux": [
+    "app/capm_poc_bootcamp_ui"
+  ]
 }
