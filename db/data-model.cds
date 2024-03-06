@@ -8,8 +8,8 @@ entity Students: cuid, managed {
   email    : localized String(1111);
   mobile    : Integer;
   course   : Association to one Courses ;
-  price    : Decimal;
-  currency : Currency;
+  // price    : Decimal;
+  // currency : Currency;
 }
 
 entity Courses: cuid,managed {

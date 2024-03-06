@@ -21,13 +21,14 @@ annotate service.Students with @(
             $Type : 'UI.DataField',
             Label : 'Mobile no',
             Value : mobile,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'Price',
-            Value : price,
-        },
-    ]
+        }
+    ],
+    UI:{
+        SelectionFields  : [ 
+            email
+        ],
+
+    }
     
 
 );
@@ -84,16 +85,6 @@ annotate service.Students with @(
                 Label : 'Mobile',
                 Value : mobile,
             },
-            {
-                $Type : 'UI.DataField',
-                Label : 'Price',
-                Value : price,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'Currency',
-                Value : currency_code,
-            },
         ],
     },
     UI.Facets : [
@@ -103,5 +94,7 @@ annotate service.Students with @(
             Label : 'General Information',
             Target : '@UI.FieldGroup#GeneratedGroup1',
         },
-    ]
+    ],
+    
 );
+

@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "capmpocbootcampui",
+    "id": "capmpocbootcampuifreestyle",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -11,9 +11,9 @@
     "description": "{{appDescription}}",
     "resources": "resources.json",
     "sourceTemplate": {
-      "id": "@sap/generator-fiori:lrop",
+      "id": "@sap/generator-fiori:basic",
       "version": "1.12.4",
-      "toolsId": "8a0cd672-308d-46db-bfd1-39ca2ba8404d"
+      "toolsId": "059ef3a3-92a5-4c57-a3bb-99fbafc19225"
     },
     "dataSources": {
       "mainService": {
@@ -27,8 +27,8 @@
     },
     "crossNavigation": {
       "inbounds": {
-        "studentsAdmin-manage": {
-          "semanticObject": "studentsAdmin",
+        "bootcampUI5-manage": {
+          "semanticObject": "bootcampUI5",
           "action": "manage",
           "title": "{{flpTitle}}",
           "signature": {
@@ -62,8 +62,12 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.ushell": {},
-        "sap.fe.templates": {}
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
       }
     },
     "contentDensities": {
@@ -74,7 +78,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "capmpocbootcampui.i18n.i18n"
+          "bundleName": "capmpocbootcampuifreestyle.i18n.i18n"
         }
       },
       "": {
@@ -86,63 +90,49 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
-      },
-      "@i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/i18n.properties"
       }
     },
     "resources": {
-      "css": []
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
     },
     "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "capmpocbootcampuifreestyle.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
       "routes": [
         {
+          "name": "RouteStudents",
           "pattern": ":?query:",
-          "name": "StudentsList",
-          "target": "StudentsList"
-        },
-        {
-          "pattern": "Students({key}):?query:",
-          "name": "StudentsObjectPage",
-          "target": "StudentsObjectPage"
+          "target": [
+            "TargetStudents"
+          ]
         }
       ],
       "targets": {
-        "StudentsList": {
-          "type": "Component",
-          "id": "StudentsList",
-          "name": "sap.fe.templates.ListReport",
-          "options": {
-            "settings": {
-              "contextPath": "/Students",
-              "variantManagement": "Page",
-              "navigation": {
-                "Students": {
-                  "detail": {
-                    "route": "StudentsObjectPage"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "StudentsObjectPage": {
-          "type": "Component",
-          "id": "StudentsObjectPage",
-          "name": "sap.fe.templates.ObjectPage",
-          "options": {
-            "settings": {
-              "editableHeaderContent": false,
-              "contextPath": "/Students"
-            }
-          }
+        "TargetStudents": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Students",
+          "viewName": "Students"
         }
       }
+    },
+    "rootView": {
+      "viewName": "capmpocbootcampuifreestyle.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
     }
-  },
-  "sap.fiori": {
-    "registrationIds": [],
-    "archeType": "transactional"
   }
 }

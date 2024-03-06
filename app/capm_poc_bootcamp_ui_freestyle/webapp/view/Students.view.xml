@@ -1,0 +1,82 @@
+<mvc:View controllerName="capmpocbootcampuifreestyle.controller.Students"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+   <Table id="idStudentsTable" mode="SingleSelectLeft"
+		inset="false"
+		items="{
+			path: '/Students',
+			sorter: {
+				path: 'firstname'
+			}
+		}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title text="Students" level="H2"/>
+                    <ToolbarSpacer />
+                     <Button text="Edit"
+						press="onEdit"/>
+                    <Button text="Create"
+						press="openCreateDialog"/>
+                    <Button text="Delete"
+						press="onDelete"/>
+					
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+		
+		<columns>
+			<Column
+				width="12em">
+				<Text text="Firstname" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Lastname" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End">
+				<Text text="Email" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Mobile" />
+			</Column>
+			<!-- <Column
+				hAlign="End">
+				<Text text="Price" />
+			</Column> -->
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<Text
+						text="{firstname}" />
+					<Text
+						text="{lastname}" />
+					<Text
+						text="{email}" />
+						<Text
+						text="{mobile}" />
+			
+					<!-- <ObjectNumber
+							number="{
+								parts:[{path:'price'},{path:'currency_code'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: false}
+							}"
+							unit="{currency_code}" /> -->
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+        <content />
+
+    </Page>
+</mvc:View>

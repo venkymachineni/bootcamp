@@ -19,11 +19,15 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-capm_poc_bootcamp_ui": "cds watch --open capm_poc_bootcamp_ui/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-capm_poc_bootcamp_ui": "cds watch --open capm_poc_bootcamp_ui/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-capm_poc_bootcamp_ui_freestyle": "cds watch --open capm_poc_bootcamp_ui_freestyle/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
       "db": "hana"
+    },
+    "fiori": {
+      "bypass_draft": true
     }
   },
   "sapux": [
